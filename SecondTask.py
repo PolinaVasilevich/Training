@@ -1,3 +1,6 @@
+import random
+
+
 def string_conversion(s):
     letter = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ')
     a = []
@@ -12,7 +15,7 @@ def magic_function(s):
     b = []
     for i in range(len(s)):
         b.append(''.join(list(s[i])[::-1]))
-    return ' '.join(b)
+    return ' '.join(random.sample(b, len(b)))
 
 
 if __name__ == '__main__':
