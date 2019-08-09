@@ -1,22 +1,14 @@
 import random
+import string
 
+s = '5ADadc1!!! s6d2,./ dv6/v3'
 
-def string_conversion(s):
-    letter = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ')
-    a = []
-    for i in range(len(s)):
-        if s[i] in letter:
-            a.append(s[i])
-    return ''.join(a)
+for i, item in enumerate(s):
+    if item not in string.ascii_letters:
+        s = s.replace(item, '')
+print(s)
+s = s.split()
 
-
-def magic_function(s):
-    s = s.split()
-    b = []
-    for i in range(len(s)):
-        b.append(''.join(list(s[i])[::-1]))
-    return ' '.join(random.sample(b, len(b)))
-
-
-if __name__ == '__main__':
-    print(magic_function(string_conversion('I dah ot evom tuo')))
+for i, item in enumerate(s):
+    s = str(s).replace(item, item[::-1])
+print(s)
