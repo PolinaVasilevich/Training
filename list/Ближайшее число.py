@@ -12,15 +12,14 @@
 Вывести значение элемента массива, ближайшее к x. Если таких чисел несколько, выведите любое из них.
 """
 N = 5
-list_N = input().split()
+list_N = list(map(int, input().split()))
 x = 6
 tmp = 0
 index_tmp = 0
 
-
-for i in range(list_N):
-
-    if abs(x - list_N[i]) > tmp:
-        tmp = abs(x - list_N[i])
+for i in range(len(list_N)):
+    if abs(x - list_N[i]) < tmp:
+        # tmp = abs(x - list_N[i])
         index_tmp = i
-print(tmp, index_tmp)
+    tmp = abs(x - list_N[i])
+print(list_N[index_tmp])
