@@ -1,4 +1,5 @@
 """координаты вектора — это его проекции на соответствующие координатные оси"""
+import math
 
 
 class Vector:
@@ -7,6 +8,21 @@ class Vector:
         self.__x = x
         self.__y = y
         self.__z = z
+
+    def __add__(self, other):
+        x = self.__x + other.__x
+        y = self.__y + other.__x
+        z = self.__z + other.__x
+        return Vector(x, y, z)
+
+    def __sub__(self, other):
+        x = self.__x - other.__x
+        y = self.__y - other.__y
+        z = self.__z - other.__z
+        return Vector(x, y, z)
+
+    def __str__(self):
+        return "Vector: {}, {}, {}".format(self.__x, self.__y, self.__z)
 
     @property
     def pr_x(self):
@@ -32,8 +48,29 @@ class Vector:
     def pr_z(self, z):
         self.__z = z
 
+    def len_vector(self):
+        return math.ceil(math.sqrt(pow(self.__x, 2) + pow(self.__y, 2) + pow(self.__z, 2)))
+
+    def scalar_Product(self, other):
+        x = self.__x * other.__x
+        y = self.__y * other.__x
+        z = self.__z * other.__x
+        return x + y + z
+
+    def cross_Product(self, other):
+        x = self.__y * other.__z - self.__z * other.__y
+        y = self.__z * other.__x - self.__x * other.__z
+        z = self.__x * other.__y - self.__y * other.__x
+        return Vector(x, y, z)
+
 
 if __name__ == "__main__":
-    v = Vector(1, 2, 3)
-    print("X-axis projection: {}\nY-axis projection: {}\nZ-axis projection: {}".format(v.pr_x, v.pr_y, v.pr_z))
+    v1 = Vector(1, 2, 3)
+    v2 = Vector(4, 5, 6)
+    print(f'X-axis projection: {v1.pr_x}\nY-axis projection: {v1.pr_y}\nZ-axis projection: {v1.pr_z}')
+    print(f"Len vector: {v1.len_vector()}")
+    print(v1 + v2)
+    print(v1 - v2)
+    print("Scalar product of vectors: {}".format(v1.scalar_Product(v2)))
+    print("Cross product of vectors: {}".format(v1.cross_Product(v2)))
 
