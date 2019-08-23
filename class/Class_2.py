@@ -22,7 +22,7 @@ class Vector:
         return Vector(x, y, z)
 
     def __str__(self):
-        return "Vector: {}, {}, {}".format(self.__x, self.__y, self.__z)
+        return "Vector: ({}, {}, {})".format(self.__x, self.__y, self.__z)
 
     @property
     def pr_x(self):
@@ -49,7 +49,8 @@ class Vector:
         self.__z = z
 
     def len_vector(self):
-        return math.ceil(math.sqrt(pow(self.__x, 2) + pow(self.__y, 2) + pow(self.__z, 2)))
+        """Method calculates vector length"""
+        return round(math.sqrt(pow(self.__x, 2) + pow(self.__y, 2) + pow(self.__z, 2)), 2)
 
     def scalar_Product(self, other):
         x = self.__x * other.__x
@@ -63,14 +64,20 @@ class Vector:
         z = self.__x * other.__y - self.__y * other.__x
         return Vector(x, y, z)
 
+    def angle(self, other):
+        a = self.scalar_Product(other)
+        b = self.len_vector() * other.len_vector()
+        return round(a / b, 2)
+
 
 if __name__ == "__main__":
     v1 = Vector(1, 2, 3)
     v2 = Vector(4, 5, 6)
-    print(f'X-axis projection: {v1.pr_x}\nY-axis projection: {v1.pr_y}\nZ-axis projection: {v1.pr_z}')
+    print(f'X-axis projection: {v1.pr_x}\nY-axis projection: '
+          f'{v1.pr_y}\nZ-axis projection: {v1.pr_z}')
     print(f"Len vector: {v1.len_vector()}")
     print(v1 + v2)
     print(v1 - v2)
-    print("Scalar product of vectors: {}".format(v1.scalar_Product(v2)))
-    print("Cross product of vectors: {}".format(v1.cross_Product(v2)))
-
+    print(f"Scalar product of vectors: {v1.scalar_Product(v2)}")
+    print(f"Cross product of vectors: {v1.cross_Product(v2)}")
+    print(f"Angle between vectors: {v1.angle(v2)}")
