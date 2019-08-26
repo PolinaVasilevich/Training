@@ -1,4 +1,3 @@
-"""координаты вектора — это его проекции на соответствующие координатные оси"""
 import math
 
 
@@ -22,8 +21,9 @@ class Vector:
             s.append((self.args[i] - other.args[i]))
         return s
 
-    def len_vector(self):
-        l_vector = 0
+
+    def length(self):
+        len = 0
         for i in range(len(self.args)):
             l_vector += (self.args[i] * self.args[i])
         return round(math.sqrt(l_vector), 2)
