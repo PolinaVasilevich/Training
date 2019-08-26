@@ -18,7 +18,6 @@ class Vector:
             list_sub.append(self.args[i] - other.args[i])
         return list_sub
 
-    @staticmethod
     def length(self):
         result_length = 0
         for i in range(len(self.args)):
@@ -44,6 +43,6 @@ if __name__ == "__main__":
     v2 = Vector(4, 5, 6, 9)
     print(f'Vector: {v1 + v2}')
     print(f'Vector: {v1 - v2}')
-    print(f"Length vector: {Vector.length(v1)}")
+    print(f"Length vector: {v1.length()}")
     print(f"Scalar product of vectors: {Vector.scalar(v1, v2)}")
 

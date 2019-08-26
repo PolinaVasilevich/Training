@@ -47,7 +47,6 @@ class Vector:
     def z(self, z):
         self.__z = z
 
-    @staticmethod
     def length(self):
         return round(math.sqrt(pow(self.__x, 2) + pow(self.__y, 2) + pow(self.__z, 2)), 2)
 
@@ -77,7 +76,7 @@ if __name__ == "__main__":
     v2 = Vector(4, 5, 6)
     print(f'X-axis projection: {v1.x}\nY-axis projection: '
           f'{v1.y}\nZ-axis projection: {v1.z}')
-    print(f"Length vector: {Vector.length(v1)}")
+    print(f"Length vector: {v1.length()}")
     print(f"Vector addition: {v1 + v2}")
     print(f"Vector subtraction: {v1 + v2}")
     print(f"Scalar product of vectors: {Vector.scalar(v1, v2)}")
