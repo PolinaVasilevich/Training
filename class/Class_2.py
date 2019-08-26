@@ -49,7 +49,6 @@ class Vector:
         self.__z = z
 
     def len_vector(self):
-        """Method calculates vector length"""
         return round(math.sqrt(pow(self.__x, 2) + pow(self.__y, 2) + pow(self.__z, 2)), 2)
 
     def scalar_Product(self, other):
@@ -66,7 +65,7 @@ class Vector:
 
     def angle(self, other):
         a = self.scalar_Product(other)
-        b = self.len_vector() * other.len_vector()
+        b = abs(self.len_vector()) * abs(other.len_vector())
         return round(a / b, 2)
 
 
@@ -81,3 +80,4 @@ if __name__ == "__main__":
     print(f"Scalar product of vectors: {v1.scalar_Product(v2)}")
     print(f"Cross product of vectors: {v1.cross_Product(v2)}")
     print(f"Angle between vectors: {v1.angle(v2)}")
+
