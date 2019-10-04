@@ -8,11 +8,15 @@ while True:
         print(indexN)
         s[indexN] = '0'
         print('|'.join(s))
-        if s[1] == '0' and s[2] == '0' and s[3] == '0':
+        if (s[1] == '0' and s[2] == '0' and s[3] == '0') or (s[1] == '0' and s[5] == '0' and s[9] == '0') or \
+                (s[9] == '0' and s[10] == '0' and s[11] == '0') or (s[11] == '0' and s[7] == '0' and s[3] == '0') or \
+                (s[1] == '0' and s[6] == '0' and s[11] == '0') or (s[3] == '0' and s[6] == '0' and s[9] == '0'):
             print('You win!')
-            break
+            answer = input('Do you want to play? Y&N: ')
+            if answer == 'N':
+                break
     else:
-        print('Ящейка уже занята!')
+        print('Ячейка уже занята!\nПопробуйте ещё раз.')
 
 
 
